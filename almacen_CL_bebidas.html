@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ALMACEN BEBIDAS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        .form-container h2 {
+            margin-top: 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #231515;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #2b9eaf;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        .form-group button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>ALMACEN BEBIDAS</h2>
+        <form id="beverage-form">
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="price">Precio:</label>
+                <input type="number" id="price" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="classification">Clasificación:</label>
+                <select id="classification">
+                    <option value="Refresco">Refresco</option>
+                    <option value="Agua">Agua</option>
+                    <option value="Jugo">Jugo</option>
+                    <option value="Alcohólica">Alcohólica</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="brand">Marca:</label>
+                <input type="text" id="brand" required>
+            </div>
+            
+            <div class="form-group">
+                <button type="submit">Agregar Bebida</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        var form = document.querySelector("#beverage-form");
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var nameInput = document.querySelector("#name");
+            var priceInput = document.querySelector("#price");
+            var classificationInput = document.querySelector("#classification");
+            var brandInput = document.querySelector("#brand");
+
+            var name = nameInput.value.trim();
+            var price = parseFloat(priceInput.value.trim());
+            var classification = classificationInput.value;
+            var brand = brandInput.value.trim();
+
+            if (name === "" || isNaN(price) || brand === "") {
+                alert("Ingresa valores válidos en todos los campos.");
+                return;
+            }
+            nameInput.value = "";
+            priceInput.value = "";
+            classificationInput.value = "Refresco"; 
+            brandInput.value = "";});
+    </script>
+</body>
+</html>
